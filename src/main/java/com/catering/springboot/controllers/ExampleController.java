@@ -6,9 +6,10 @@ import java.util.Map;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.bind.annotation.RequestParam;
+
+import com.catering.springboot.model.Employes;
+
 
 
 
@@ -39,12 +40,16 @@ public class ExampleController {
     public String volvPage() {
         return "volv"; // Se renderiza volv.html desde templates
     }
+
+
+
     @GetMapping("/contacto")  
-  
-    
     public Map<String, Object> hola() {
+        Employes emp = new Employes("Joel", "Silva", "Lima", "System", 22, 21230, 1000);
+      
         Map<String, Object> cont= new HashMap<>();
         cont.put("nombre", "Joel Sant");
+        cont.put("apellido", emp.getLastName());
         cont.put("edad", 26);
         cont.put("mensaje", "Hola este es mi primer curso con Spring boot");
         cont.put("curso", "Spring boot con Java");
