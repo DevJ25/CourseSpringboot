@@ -7,14 +7,46 @@
   </head>
   <body>
     <h1>Información del empleado</h1>
-    <p th:text="'Nombre: ' + ${Empleados.name}">Nombre del servidor</p>
-    <p th:text="'Apellido: ' + ${Empleados.lastName}">Apellido del servidor</p>
-    <p th:text="'Dirección: ' + ${Empleados.direccion}">
-      Dirección del servidor
-    </p>
-    <p th:text="'Puesto: ' + ${Empleados.puesto}">Puesto del servidor</p>
-    <p th:text="'Edad: ' + ${Empleados.edad}">Edad del servidor</p>
-    <p th:text="'Telefono: ' + ${Empleados.telefono}">Telefono del servidor</p>
-    <p th:text="'Salario: ' + ${Empleados.salario}">Salario del servidor</p>
+    <p th:text="'Nombre: ' + ${Empleados.name}"></p>
+    <p th:text="'Apellido: ' + ${Empleados.lastName}"></p>
+    <p th:text="'Dirección: ' + ${Empleados.direccion}"></p>
+    <p th:text="'Puesto: ' + ${Empleados.puesto}"></p>
+    <p th:text="'Edad: ' + ${Empleados.edad}"></p>
+    <ul>
+      <li>
+        <strong>Edad:</strong>
+        <span
+          th:text="${Empleados.edad != null ?  Empleados.edad : 'No se ha definido'}"
+        ></span>
+      </li>
+    </ul>
+    <p th:text="'Telefono: ' + ${Empleados.telefono}"></p>
+    <p th:text="'Salario: ' + ${Empleados.salario}"></p>
+
+    <!--Tabla de atributos-->
+    <table>
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Apellido</th>
+          <th>Dirección</th>
+          <th>Puesto</th>
+          <th>Edad</th>
+          <th>Telefono</th>
+          <th>Salario</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr th:each="empleado : ${Employes}">
+          <td th:text="${empleado.name}"></td>
+          <td th:text="${empleado.lastName}"></td>
+          <td th:text="${empleado.direccion}"></td>
+          <td th:text="${empleado.puesto}"></td>
+          <td th:text="${empleado.edad}"></td>
+          <td th:text="${empleado.telefono}"></td>
+          <td th:text="${empleado.salario}"></td>
+        </tr>
+      </tbody>
+    </table>
   </body>
 </html>
